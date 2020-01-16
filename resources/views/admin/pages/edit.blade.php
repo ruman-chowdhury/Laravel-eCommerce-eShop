@@ -22,35 +22,37 @@
                     <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
                 </div>
             </div>
-@include('message.error')
+            @include('message.error')
             <div class="box-content">
-                <form class="form-horizontal" method="post" action="{{ route('admin.category.add') }}">
+                <form class="form-horizontal" method="post" action="{{ route('admin.category.update',$singleData->id) }}">
                     {{ csrf_field() }}
 
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="cat-name">Category Name:</label>
                             <div class="controls">
-                                <input type="text" name="categoryName" id="cat-name" value="{{old('categoryName')}}">
+                                <input type="text" name="categoryName" id="cat-name" value="{{ $singleData->cat_name }}">
                             </div>
                         </div>
 
                         <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2">Category Description:</label>
                             <div class="controls">
-                                <textarea class="cleditor" name="categoryDescription" id="textarea2" rows="3"></textarea>
+                                <textarea class="cleditor" name="categoryDescription" id="textarea2" rows="3">
+                                    {{ $singleData->cat_description }}
+                                </textarea>
                             </div>
                         </div>
 
                         <div class="control-group">
                             <label class="control-label" for="cat-status">Publish:</label>
                             <div class="controls">
-                                <input type="checkbox" name="categoryStatus" id="cat-status" >
+                                <input type="checkbox" name="categoryStatus" id="cat-status" value="1" {{ $singleData->cat_status == true?'checked':'' }}>
                             </div>
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Save Category</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                             <button type="reset" class="btn">Cancel</button>
                         </div>
                     </fieldset>

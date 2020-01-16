@@ -55,7 +55,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="index.html"><span>Metro</span></a>
+            <a class="brand" href="index.html"><span>Admin Dashboard</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
@@ -447,6 +447,8 @@
 {{--toaster js--}}
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
+
+@stack('js')
 <!-- end: JavaScript-->
 
 </body>

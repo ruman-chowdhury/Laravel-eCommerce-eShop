@@ -54,8 +54,16 @@ Route::group([ 'prefix'=>'admin', 'as'=>'admin.', 'namespace'=>'Admin'],function
         Route::get('/logout','LoginController@logout')->name('logout');
 
         Route::get('/category/add','CategoryController@index')->name('category.add.form');
-
+        Route::post('/category/add','CategoryController@store')->name('category.add');
         Route::get('/category/read','CategoryController@read')->name('category.read');
+        Route::get('/category/edit/{id}','CategoryController@edit')->name('category.edit.form');
+        Route::post('/category/update/{id}','CategoryController@update')->name('category.update');
+        Route::post('/category/delete/{id}','CategoryController@delete')->name('category.delete');
+
+        Route::get('/category/publish/{id}','CategoryController@publish')->name('category.publish');
+        Route::get('/category/unpublish/{id}','CategoryController@unpublish')->name('category.unpublish');
+
+
     });
 
 
